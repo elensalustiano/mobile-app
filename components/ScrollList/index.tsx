@@ -1,0 +1,1 @@
+// importar o flatList https://reactnative.dev/docs/flatlist

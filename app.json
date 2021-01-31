@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "save-me",
+    "name": "save Me",
     "slug": "save-me",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -25,7 +25,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "save.me"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
