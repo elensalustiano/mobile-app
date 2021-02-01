@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
+import { Colors, FontSize } from '../../constants/Styles'
+
 export type ItemProps = {
   title: String
   password: String
@@ -13,24 +15,42 @@ type InfoCardProps = {
 
 export default function InfoCard({ item }: InfoCardProps) {
   const { title, name, password } = item
+  const isShowPassword = true
 
   return (
     <View style={styles.container}>
-      <Text style={styles.container}>{title}</Text>
-      <Text>{name || 'não informado'}</Text>
-      <Text>{password}</Text>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={[styles.text, name ? false : styles.warningText]}>
+        {name || 'não informado'}
+      </Text>
+      {isShowPassword ?
+        <Text style={styles.text}>{password}</Text>
+        :
+        <Text style={styles.text}>*****************</Text>
+      }
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
+    backgroundColor: Colors.primaryColor,
+    padding: 18,
     marginVertical: 8,
-    marginHorizontal: 16,
+    marginHorizontal: 14,
+    borderRadius: 10,
   },
   title: {
-    fontSize: 32,
+    color: Colors.text,
+    fontSize: FontSize.medium,
+    fontWeight: 'bold'
   },
+  text: {
+    color: Colors.text,
+    fontSize: FontSize.default,
+    marginTop: 8
+  },
+  warningText: {
+    color: Colors.warningText
+  }
 })
