@@ -3,12 +3,12 @@ export type RootStackParamList = {
 }
 
 export type BottomTabParamList = {
-  TabOne: undefined
+  Reminder: undefined
   TabTwo: undefined
 }
 
-export type TabOneParamList = {
-  TabOneScreen: undefined
+export type ReminderParamList = {
+  ReminderScreen: undefined
 }
 
 export type TabTwoParamList = {
