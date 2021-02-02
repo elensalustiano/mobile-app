@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SafeAreaView, FlatList, StyleSheet, StatusBar } from 'react-native';
+import { SafeAreaView, FlatList, StyleSheet, StatusBar } from 'react-native'
 
 import InfoCard, { ItemProps } from '../info-card'
 
@@ -32,6 +32,6 @@ export default function ScrollList({ dataList }: ListProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || 0
   }
 })

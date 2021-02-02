@@ -14,7 +14,8 @@ const Colors = {
 
 const FontSize = {
   medium: 20,
-  default: 16
+  default: 16,
+  extraLarge: 40
 }
 
 export {
