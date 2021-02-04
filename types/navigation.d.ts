@@ -1,5 +1,6 @@
 export type RootStackParamList = {
   Root: undefined
+  SaveReminder: undefined
 }
 
 export type BottomTabParamList = {
