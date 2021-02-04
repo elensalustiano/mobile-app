@@ -1,16 +1,17 @@
 import * as React from 'react'
 import { SafeAreaView, FlatList, StyleSheet, StatusBar } from 'react-native'
 
-import InfoCard, { ItemProps } from '../info-card'
+import InfoCard from '../info-card'
+import { Reminder } from '../../types/reminder'
 
 type FlatListType = {
-  item: ItemProps
+  item: Reminder
   index: Number
   separators: Object
 }
 
 type ListProps = {
-  dataList: Array<ItemProps>
+  dataList: Array<Reminder>
 }
 
 export default function ScrollList({ dataList }: ListProps) {

@@ -2,15 +2,10 @@ import * as React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Colors, FontSize } from '../../constants/Styles'
-
-export type ItemProps = {
-  title: String
-  password: String
-  name?: String
-}
+import { Reminder } from '../../types/reminder'
 
 type InfoCardProps = {
-  item: ItemProps
+  item: Reminder
 }
 
 export default function InfoCard({ item }: InfoCardProps) {
