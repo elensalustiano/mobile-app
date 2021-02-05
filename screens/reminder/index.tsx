@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { ReactElement } from 'react'
 
 import ScrollList from '../../components/scroll-list'
 
@@ -32,7 +32,7 @@ const DATA = [
   },
 ]
 
-export default function ReminderScreen() {
+export default function ReminderScreen(): ReactElement {
   return (
     <ScrollList dataList={DATA} />
   )

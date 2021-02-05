@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
+import React, { ReactElement } from 'react'
+import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack'
 
 import { ReminderParamList } from '../types/navigation'
 import ReminderScreen from '../screens/reminder'

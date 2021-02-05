@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { ReactElement } from 'react'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -15,7 +15,7 @@ import SaveReminder from '../screens/save-reminder'
 // Read more here: https://reactnavigation.org/docs/modal
 const Stack = createStackNavigator<RootStackParamList>()
 
-export default function Navigation() {
+export default function Navigation(): ReactElement {
   return (
     <NavigationContainer theme={DefaultTheme}>
       <Stack.Navigator screenOptions={{ headerShown: true }}>
