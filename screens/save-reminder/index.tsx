@@ -9,7 +9,24 @@ type SaveReminderProps = {
 }
 
 export default function SaveReminder({ item }: SaveReminderProps): ReactElement {
-  const [data, setData] = useState<Reminder>()
+  const [data, setData] = useState<Reminder>({
+    title: '',
+    name: '',
+    password: ''
+  })
+
+  const onChangeTitle = (value: string) =>
+    setData({ ...data, title: value })
+
+  const onChangeName = (value: string) =>
+    setData({ ...data, name: value })
+
+  const onChangePassword = (value: string) =>
+    setData({ ...data, password: value })
+
+  const onSubmit = () => {
+    console.log('data: ', data);
+  }
 
   useEffect(() => {
     if (item) setData(item)
@@ -20,24 +37,24 @@ export default function SaveReminder({ item }: SaveReminderProps): ReactElement 
       <Text style={styles.label}>Título*</Text>
       <TextInput
         style={styles.textInput}
-        onChangeText={() => console.log('change')}
+        onChangeText={onChangeTitle}
         value={data?.title}
       />
       <Text style={styles.label}>Usuário</Text>
       <TextInput
         style={styles.textInput}
-        onChangeText={() => console.log('change')}
+        onChangeText={onChangeName}
         value={data?.name}
       />
       <Text style={styles.label}>Senha*</Text>
       <TextInput
         style={styles.textInput}
-        onChangeText={() => console.log('change')}
+        onChangeText={onChangePassword}
         value={data?.password}
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => console.log('aaa')}
+        onPress={onSubmit}
       >
         <Text style={styles.buttonText}>Salvar</Text>
       </TouchableOpacity>
@@ -64,7 +81,7 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   textInput: {
-    outline: 'none',
+    outlineColor: 'transparent',
     height: 41,
     backgroundColor: Colors.background,
     borderRadius: 15,
