@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   textInput: {
-    outlineColor: 'transparent',
     height: 41,
     backgroundColor: Colors.background,
     borderRadius: 15,
