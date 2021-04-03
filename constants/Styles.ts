@@ -4,7 +4,7 @@ const yellow = '#F2F705'
 
 const Colors = {
   text: white,
-  warningText: yellow,
+  warning: yellow,
   background: white,
   tint: matisse,
   tabIconDefault: '#ccc',

@@ -15,7 +15,7 @@ export default function InfoCard({ item }: InfoCardProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <Text style={[styles.text, name ? false : styles.warningText]}>
+      <Text style={[styles.text, name ? false : styles.warning]}>
         {name || 'não informado'}
       </Text>
       {isShowPassword ?
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.default,
     marginTop: 8
   },
-  warningText: {
-    color: Colors.warningText
+  warning: {
+    color: Colors.warning
   }
 })

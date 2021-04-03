@@ -20,7 +20,7 @@ export default function AddButton({ onPress }: AddButtonProps): ReactElement {
 
 const styles = StyleSheet.create({
   button: {
-    padding: 10,
+    padding: 10
   },
   text: {
     color: Colors.primaryColor,

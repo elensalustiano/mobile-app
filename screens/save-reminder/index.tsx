@@ -1,8 +1,10 @@
 import React, { ReactElement, useState, useEffect } from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native'
 
 import { Colors, FontSize } from '../../constants/Styles'
 import { Reminder } from '../../types/reminder'
+
+import { removeConsecutiveSpaces, removeSpaces } from '../../helpers/string'
 
 type SaveReminderProps = {
   item?: Reminder
@@ -16,16 +18,23 @@ export default function SaveReminder({ item }: SaveReminderProps): ReactElement 
   })
 
   const onChangeTitle = (value: string) =>
-    setData({ ...data, title: value })
+    setData({ ...data, title: removeConsecutiveSpaces(value) })
 
   const onChangeName = (value: string) =>
-    setData({ ...data, name: value })
+    setData({ ...data, name: removeConsecutiveSpaces(value) })
 
   const onChangePassword = (value: string) =>
-    setData({ ...data, password: value })
+    setData({ ...data, password: removeSpaces(value) })
 
   const onSubmit = () => {
-    console.log('data: ', data);
+    const hasError = Object.entries(data).some(([key, value]) => {
+      return key === 'name' ? false : !value
+    })
+
+    if (hasError) {
+      Alert.alert('Erro', 'Preencha todos os campos obrigatórios')
+    }
+
   }
 
   useEffect(() => {
@@ -38,7 +47,7 @@ export default function SaveReminder({ item }: SaveReminderProps): ReactElement 
       <TextInput
         style={styles.textInput}
         onChangeText={onChangeTitle}
-        value={data?.title}
+        value={data.title}
       />
       <Text style={styles.label}>Usuário</Text>
       <TextInput
@@ -76,7 +85,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   warningText: {
-    color: Colors.warningText,
+    color: Colors.warning,
     marginTop: 100,
     marginLeft: 10
   },
@@ -96,6 +105,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: Colors.primaryColor,
     fontSize: FontSize.default,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
 })
