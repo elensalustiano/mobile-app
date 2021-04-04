@@ -1,10 +1,11 @@
 import React, { ReactElement, useState, useEffect } from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
 
 import { Colors, FontSize } from '../../constants/Styles'
 import { Reminder } from '../../types/reminder'
 
 import { removeConsecutiveSpaces, removeSpaces } from '../../helpers/string'
+import TextInputField from '../../components/text-input-field'
 
 type SaveReminderProps = {
   item?: Reminder
@@ -43,23 +44,22 @@ export default function SaveReminder({ item }: SaveReminderProps): ReactElement 
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Título*</Text>
-      <TextInput
-        style={styles.textInput}
-        onChangeText={onChangeTitle}
+      <TextInputField
+        isRequired
         value={data.title}
+        label={'Título'}
+        onChangeText={onChangeTitle}
       />
-      <Text style={styles.label}>Usuário</Text>
-      <TextInput
-        style={styles.textInput}
+      <TextInputField
+        value={data.name}
+        label={'Usuário'}
         onChangeText={onChangeName}
-        value={data?.name}
       />
-      <Text style={styles.label}>Senha*</Text>
-      <TextInput
-        style={styles.textInput}
+      <TextInputField
+        isRequired
+        value={data.password}
+        label={'Senha'}
         onChangeText={onChangePassword}
-        value={data?.password}
       />
       <TouchableOpacity
         style={styles.button}
@@ -77,24 +77,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryColor,
     height: '100%'
   },
-  label: {
-    color: Colors.text,
-    fontSize: FontSize.medium,
-    marginTop: 16,
-    marginLeft: 16,
-    fontWeight: 'bold'
-  },
   warningText: {
     color: Colors.warning,
     marginTop: 100,
     marginLeft: 10
-  },
-  textInput: {
-    height: 41,
-    backgroundColor: Colors.background,
-    borderRadius: 15,
-    margin: 10,
-    paddingLeft: 5
   },
   button: {
     marginTop: 50,

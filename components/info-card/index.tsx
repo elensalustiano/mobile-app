@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { ReactElement } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Colors, FontSize } from '../../constants/Styles'
@@ -8,7 +8,7 @@ type InfoCardProps = {
   item: Reminder
 }
 
-export default function InfoCard({ item }: InfoCardProps) {
+export default function InfoCard({ item }: InfoCardProps): ReactElement {
   const { title, name, password } = item
   const isShowPassword = true
 

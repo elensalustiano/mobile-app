@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { ReactElement } from 'react'
 import { SafeAreaView, FlatList, StyleSheet, StatusBar } from 'react-native'
 
 import InfoCard from '../info-card'
@@ -6,15 +6,14 @@ import { Reminder } from '../../types/reminder'
 
 type FlatListType = {
   item: Reminder
-  index: Number
-  separators: Object
+  index: number
 }
 
 type ListProps = {
   dataList: Array<Reminder>
 }
 
-export default function ScrollList({ dataList }: ListProps) {
+export default function ScrollList({ dataList }: ListProps): ReactElement {
 
   const renderItem = ({ item }: FlatListType) => (
     <InfoCard item={item} />
