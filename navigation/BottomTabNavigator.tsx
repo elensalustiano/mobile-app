@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { ReactElement } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -11,7 +11,7 @@ import ReminderTabNavigator from './ReminderTabNavigator'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
-export default function BottomTabNavigator() {
+export default function BottomTabNavigator(): ReactElement {
   return (
     <BottomTab.Navigator
       initialRouteName="Reminder"

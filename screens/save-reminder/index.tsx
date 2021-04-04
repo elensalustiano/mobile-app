@@ -1,11 +1,12 @@
 import React, { ReactElement, useState, useEffect } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
+import { StyleSheet, Text, View, Alert } from 'react-native'
 
-import { Colors, FontSize } from '../../constants/Styles'
+import { Colors } from '../../constants/Styles'
 import { Reminder } from '../../types/reminder'
 
 import { removeConsecutiveSpaces, removeSpaces } from '../../helpers/string'
 import TextInputField from '../../components/text-input-field'
+import Button from '../../components/button'
 
 type SaveReminderProps = {
   item?: Reminder
@@ -61,12 +62,10 @@ export default function SaveReminder({ item }: SaveReminderProps): ReactElement 
         label={'Senha'}
         onChangeText={onChangePassword}
       />
-      <TouchableOpacity
-        style={styles.button}
-        onPress={onSubmit}
-      >
-        <Text style={styles.buttonText}>Salvar</Text>
-      </TouchableOpacity>
+      <Button
+        onSubmit={onSubmit}
+        buttonText={'Salvar'}
+      />
       <Text style={styles.warningText}>* campo obrigatorio</Text>
     </View>
   )
@@ -81,17 +80,5 @@ const styles = StyleSheet.create({
     color: Colors.warning,
     marginTop: 100,
     marginLeft: 10
-  },
-  button: {
-    marginTop: 50,
-    backgroundColor: Colors.background,
-    textAlign: 'center',
-    padding: 10
-  },
-  buttonText: {
-    color: Colors.primaryColor,
-    fontSize: FontSize.default,
-    fontWeight: 'bold',
-    textAlign: 'center'
   }
 })
