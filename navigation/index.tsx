@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { RootStackParamList } from '../types/navigation'
 import { Colors } from '../constants/Styles'
 
-import BottomTabNavigator from './BottomTabNavigator'
+import BottomTabNavigator from './bottom-tab-navigator'
 import SaveReminder from '../screens/save-reminder'
 
 // If you are not familiar with React Navigation, we recommend going through the

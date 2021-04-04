@@ -7,7 +7,7 @@ import { Colors } from '../constants/Styles'
 import { BottomTabParamList, TabTwoParamList } from '../types/navigation'
 
 import TabTwoScreen from '../screens/TabTwoScreen'
-import ReminderTabNavigator from './ReminderTabNavigator'
+import ReminderTabNavigator from './reminder-tab-navigator'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
